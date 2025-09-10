@@ -6,6 +6,14 @@ Este projeto faz parte da disciplina **Projeto de Banco de Dados** e consiste na
 O desenvolvimento do projeto foi organizado em quatro scripts principais:
 
 ---
+## O que são?
+Procedures: blocos de código SQL armazenados no banco, que executam ações (ex.: cadastrar um livro).
+
+Views: consultas salvas no banco, que funcionam como tabelas virtuais para simplificar relatórios e análises.
+
+Functions: semelhantes às procedures, mas retornam sempre um valor. São úteis para cálculos ou validações.
+
+---
 
 ### 1. Script `scheme.sql`
 Neste script, foram criadas todas as tabelas do banco de dados, incluindo definições de chaves primárias, estrangeiras e restrições de integridade.  
@@ -44,7 +52,22 @@ As procedures garantem consistência do banco e evitam repetição de comandos S
 
 ---
 
-### 4. Script `tests.sql`
+### 4. Script `functions.sql`
+Foram criadas **functions** para consultas específicas e validações do sistema.  
+
+Essas funções retornam sempre um valor, permitindo automatizar verificações e cálculos que seriam repetitivos em SQL puro.  
+
+As principais funções implementadas foram:  
+- `autor_do_livro(p_id)` – retorna o nome do autor de um livro a partir do seu id.  
+- `livro_emprestado(p_id)` – verifica se o último empréstimo de um livro ainda está ativo (sem data de devolução).  
+- `usuario_com_atraso(p_id)` – identifica se um usuário possui empréstimos atrasados há mais de 10 dias.  
+- `total_gasto_usuario(p_id)` – calcula o valor total gasto em empréstimos por um usuário, somando todos os registros da coluna `valor`.  
+
+Essas funções ajudam a **centralizar a lógica de negócio no banco de dados**, deixando o sistema mais eficiente, limpo e confiável.  
+
+---
+
+### 5. Script `tests.sql`
 Este script foi utilizado para testar as **views** e **procedures**, utilizando comandos `SELECT` e `CALL`:
 - `SELECT * FROM livros_com_autores;`
 - `SELECT * FROM emprestimos_em_aberto;`
