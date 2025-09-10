@@ -35,7 +35,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 
-CREATE OR REPLACE FUNCTION usuario_com_atraso(p_id INT)
+CREATE FUNCTION usuario_com_atraso(p_id INT)
 RETURNS TEXT AS $$
 DECLARE
     v_result TEXT;
@@ -67,7 +67,7 @@ UPDATE emprestimo SET valor = 4.50 WHERE id = 4;
 UPDATE emprestimo SET valor = 8.00 WHERE id = 5;
 
 
-CREATE OR REPLACE FUNCTION total_gasto_usuario(p_id INT)
+CREATE FUNCTION total_gasto_usuario(p_id INT)
 RETURNS NUMERIC(10,2) AS $$
 DECLARE
     v_total NUMERIC(10,2);
