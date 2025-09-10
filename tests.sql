@@ -33,3 +33,14 @@ VALUES(6,6,8,'2025-08-07','2025-08-24');
 CALL excluir_usuario(6);
 SELECT*FROM emprestimo;
 SELECT*FROM usuario;
+
+
+--consultando function
+
+SELECT autor_do_livro(1);
+
+SELECT livro_emprestado(2);
+
+SELECT usuario_com_atraso(3);
+
+SELECT total_gasto_usuario(4);
